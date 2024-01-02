@@ -1,7 +1,7 @@
 # Laporan Proyek Machine Learning
-### Nama :
-### Nim :
-### Kelas :
+### Nama : Ikmal Saepul Rohman 
+### Nim : 211351063
+### Kelas : Malam B
 
 ## Domain Proyek
 
