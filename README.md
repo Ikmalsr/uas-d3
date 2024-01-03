@@ -5,46 +5,47 @@
 
 ## Domain Proyek
 
-Proyek ini mendiagnosa perihal resiko diabetes pada wanita yang sedang mengandung 
+Proyek ini klasifikasi kaca berdasarkan 10 atribut yang ditentukan
 
 ## Business Understanding
 
-Wanita yang sedang mengandung sejatinya beresiko terkena diabetes, didasarkan pada penelitian yang di ajukan di india pada wanita berusia diatas 21 tahun dengan 787 sample.
+Memudahkan untuk menentukan jenis kaca apa yang tepat dalam sebuah pembangunan atau pemakaian.
 
 Bagian laporan ini mencakup:
 
 ### Problem Statements
 
 Menjelaskan pernyataan masalah latar belakang:
-- Mendiagnosa resiko kanker terhadap wanita yang sedang mengandung
+- Ketidaktahuan seseorang terhadap jenis kaca.
 
 ### Goals
 
 Menjelaskan tujuan dari pernyataan masalah:
-- Memudahkan para pasien wanita yang sedang hamil untuk mendiagnosa apakah memiliki resiko terkena diabetes
+- Memudahkan para pembangun proyek pembangunan dalam pemilihan kaca yang cocok.
 
     ### Solution statements
-    - Sebagai metode untuk mengetahui klasifikasi melalui algoritma SVC
-    - Didasarkan data penelitian yang menguji 787 sample sehingga cukup akurat untuk proses klasifikasi
-
+    - Dibuatkannya aplikasi klasifikasi kaca berdasarkan parameter yang telah ditentukan. dan dihitung menggunakan algoritma decision tree.
+      
 ## Data Understanding
-Data yang digunakan di dasarkan pada dataset yang di sediakan oleh kaggle dimana di dalamnya terdapat 787 studi kasus.
+Data yang digunakan di dasarkan pada dataset yang di sediakan oleh kaggle dimana di dalamnya terdapat 10 atribut.
 
-[Dataset](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database/).
+[Glass Classification](https://www.kaggle.com/datasets/uciml/glass/data).
 
 
 ### Variabel-variabel pada Dataset tersebut adalah sebagai berikut:
 Variable dan tipedata yang di gunakan meliputi :
 
-- Pregnancies = masa kehamilan pasien (int64)  
-- Glucose = tingkat kandungan gulkosa (int64)  
-- BloodPressure = tekanan darah pasien (int64)  
-- SkinThickness = ketebalan kulit terhadap lemak (int64)  
-- Insulin = tingkat insulin (int64)  
-- BMI = tingkat BMI (float64)
-- DiabetesPedigreeFunction = nilai DPF (float64)
-- Age = usia pasien (int64) 
-- Outcome = diagnosa apakah mengalami diabetes atau tidak (int64)
+- Id number: 1 to 214 (removed from CSV file)
+- RI: refractive index
+- Na: Sodium (unit measurement: weight percent in corresponding oxide, as are attributes 4-10)
+- Mg: Magnesium
+- Al: Aluminum
+- Si: Silicon
+- K: Potassium
+- Ca: Calcium
+- Ba: Barium
+- Fe: Iron
+- 
 ## Data Preparation
 Pertama tama kita persiapkan dataset yang akan di pergunakan untuk menjadi model Machine Learning, selanjutnya kita lakukan data preparation dengan memanggil library yang dibutuhkan
 
