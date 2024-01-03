@@ -109,6 +109,8 @@ untuk menampilkan data berdasarkan tipe.
 ```bash
 sns.countplot(x = df['Type'], color = 'green')
 ```
+![image](https://github.com/Ikmalsr/uas-d3/assets/93483784/38061552-d169-447a-9ea7-fd83e83438d3)
+
 ## Modeling
 Selanjutnya jika data preparation sudah selesai maka kita bisa lakukan proses modeling.
 Pertama tama yang harus di siapkan adalah nilai X dan Y, diman X menjadi atrribut dan Y menjadi label
