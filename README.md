@@ -200,7 +200,7 @@ Tingkat akurasi data training =  0.7821229050279329
 
 ## Deployment
 Aplikasi saya
-[Klik Disini](https://ikmalmachine.streamlit.app/)
-![image](https://github.com/Ikmalsr/uts-cancer/assets/93483784/88df7a76-7893-4648-a031-db68bed71cf1)
+[Klik Disini](https://uas-d3-ikmal.streamlit.app/)
+![image](https://github.com/Ikmalsr/uas-d3/assets/93483784/5cf0c969-388a-429c-81f9-6b27e160ec81)
 
 
