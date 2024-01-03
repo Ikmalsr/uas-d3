@@ -50,14 +50,20 @@ Variable dan tipedata yang di gunakan meliputi :
 Pertama tama kita persiapkan dataset yang akan di pergunakan untuk menjadi model Machine Learning, selanjutnya kita lakukan data preparation dengan memanggil library yang dibutuhkan
 
 ```bash
-import pandas as pd
 import numpy as np
-from sklearn import svm
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import accuracy_score
-import matplotlib.pyplot as plt
+import pandas as pd
 import seaborn as sns
+import matplotlib.pyplot as plt
+```
+```bash
+from sklearn.model_selection import train_test_split
+from sklearn import tree
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.preprocessing import StandardScaler
+```
+```bash
+import pickle
 ```
 Selanjutnya kita koneksikan google collab kita dengan kaggle menggunakan token kaggle dengan perintah
 ```bash
@@ -73,17 +79,17 @@ maka kita akan mengupload file token kaggle kita. dan bisa kita lanjutkan dengan
 ```
 selanjutkan kita download data setnya
 ```bash
-!kaggle datasets download -d uciml/pima-indians-diabetes-database/
+!kaggle datasets download -d uciml/glass
 ```
 Jika sudah, kita bisa membuat folder baru untuk menyimpan dan mengekstrak dataset yang sudah kita download
 ```bash
-!mkdir diabetes
-!unzip pima-indians-diabetes-database.zip -d diabetes
-!ls diabetes
+!mkdir glass
+!unzip glass.zip -d glass
+!ls glass
 ```
 Kemudian kita mount data nya dengan perintah
 ```bash
-df =  pd.read_csv('diabetes/diabetes.csv')
+df = pd.read_csv('/content/glass/glass.csv')
 ```
 Jika data sudah di mount, maka kita bisa mencoba memastikan apakah data akan terpanggil atau tidak dengan perintah
 ```bash
@@ -94,34 +100,15 @@ Untuk mengetahui jumlah baris dan kolomnya kita bisa ketikan
 ```bash
 df.shape
 ```
-selanjutnya kita bisa lakukan Visualisai data
+untuk mengecek apa data ada yang duplikat atau tidak.
 ```bash
-def plot_distributions_by_outcome(data, columns):
-    fig, axes = plt.subplots(2, len(columns)//2, figsize=(15, 10))
-    for i, column in enumerate(columns):
-        row = i // (len(columns)//2)
-        col = i % (len(columns)//2)
-        sns.kdeplot(data=data, x=column, hue='Outcome', fill=True, ax=axes[row, col])
-        axes[row, col].set_title(f"Distribution of {column}, by Outcome")
-    plt.tight_layout()
-    plt.show()
-columns = ['Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction']
-plot_distributions_by_outcome(df, columns)
+df.duplicated().head(40)
 ```
-![output](https://github.com/Ikmalsr/uts-cancer/assets/93483784/21f6ce83-5f9b-4ac6-a961-9d004532e613)
+## EDA
+untuk menampilkan data berdasarkan tipe.
 ```bash
-sns.countplot(x=df['Outcome'], data=df)
-plt.show()
+sns.countplot(x = df['Type'], color = 'green')
 ```
-![bar](https://github.com/Ikmalsr/uts-cancer/assets/93483784/65ce2837-537c-419b-968e-25ec14321495)
-```bash
-plt.figure(figsize=(16,8))
-sns.countplot(x=df['Age'],hue_order=df.Age.value_counts().index[:10])
-plt.show()
-```
-![chart](https://github.com/Ikmalsr/uts-cancer/assets/93483784/509cc6e7-aaa6-4a5a-a06e-1fb77164c5ea)
-
-Selanjutnya kita lakukan modeling
 ## Modeling
 Selanjutnya jika data preparation sudah selesai maka kita bisa lakukan proses modeling.
 Pertama tama yang harus di siapkan adalah nilai X dan Y, diman X menjadi atrribut dan Y menjadi label
